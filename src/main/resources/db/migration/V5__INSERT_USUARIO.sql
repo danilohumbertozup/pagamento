@@ -1,0 +1,9 @@
+INSERT INTO USUARIO(EMAIL, ID_FORMA_PAGAMENTO) values ('jose@gmail.com', 1);
+INSERT INTO USUARIO(EMAIL, ID_FORMA_PAGAMENTO) values ('jose@gmail.com', 2);
+INSERT INTO USUARIO(EMAIL, ID_FORMA_PAGAMENTO) values ('jose@gmail.com', 3);
+INSERT INTO USUARIO(EMAIL, ID_FORMA_PAGAMENTO) values ('jose@gmail.com', 4);
+
+INSERT INTO USUARIO(EMAIL, ID_FORMA_PAGAMENTO) values ('maria@gmail.com', 1);
+INSERT INTO USUARIO(EMAIL, ID_FORMA_PAGAMENTO) values ('maria@gmail.com', 2);
+
+INSERT INTO USUARIO(EMAIL, ID_FORMA_PAGAMENTO) values ('mane@gmail.com', 1);
