@@ -32,17 +32,6 @@ class RestApiController {
     @Autowired
     lateinit var tipoFormaPagamentoRepository: TipoFormaPagamentoRepository
 
-    //TODO em andamento ....
-    @ResponseBody
-    @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/formasPagamento")
-    fun buscaformasPagamentoPorIdRestauranteEEmail(
-            @RequestParam(name = "idRestaurante", required = true) idRestaurante: Long,
-            @RequestParam(name = "email", required = true)
-            @Email(message = "Informe um email válido.") email: String): List<FormaPagamento> {
-        return formaPagamentoRepository.findAll()
-    }
-
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/formasPagamento")
