@@ -6,6 +6,7 @@ Treinamento API - Serviço de Pagamento.
 
 * Docker
 * Java 11
+* Maven
 
 O comando abaixo é utilizado para subir uma imagem do postgres.
 ```bash
