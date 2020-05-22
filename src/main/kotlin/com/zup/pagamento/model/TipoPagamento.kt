@@ -18,4 +18,5 @@ class TipoPagamento (
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
     var id: Long = 0
+
 }

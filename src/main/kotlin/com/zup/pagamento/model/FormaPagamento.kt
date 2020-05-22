@@ -18,6 +18,6 @@ class FormaPagamento(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", nullable = false)
+    @Column(name = "ID")
     var id: Long = 0
 }
