@@ -7,12 +7,7 @@ import javax.validation.constraints.NotNull
 
 @Entity
 @Table(name = "USUARIO")
-data class Usuario(
-        @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
-        @Column(name = "ID", nullable = false)
-        var id: Long,
-
+class Usuario(
         @Column(nullable = false, name = "EMAIL")
         @NotNull(message = "Email obrigatório")
         @Email(message = "Email inválido.")
@@ -20,5 +15,10 @@ data class Usuario(
 
         @ManyToOne
         @JoinColumn(name = "ID_FORMA_PAGAMENTO", referencedColumnName = "ID")
-        @JsonManagedReference
-        var formaPagamento: FormaPagamento)
+        var formaPagamento: FormaPagamento) {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID", nullable = false)
+    var id: Long = 0
+}
