@@ -1,6 +1,5 @@
 package com.zup.pagamento.model
 
-import com.fasterxml.jackson.annotation.JsonManagedReference
 import javax.persistence.*
 import javax.validation.constraints.NotNull
 
@@ -20,4 +19,19 @@ class FormaPagamento(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     var id: Long = 0
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as FormaPagamento
+
+        if (descricao != other.descricao) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        return descricao.hashCode()
+    }
 }
