@@ -2,18 +2,17 @@ package com.zup.pagamento.controller
 
 import com.zup.pagamento.model.FormaPagamento
 import com.zup.pagamento.model.Restaurante
-import com.zup.pagamento.model.TipoFormaPagamento
+import com.zup.pagamento.model.TipoPagamento
 import com.zup.pagamento.model.Usuario
 import com.zup.pagamento.repository.FormaPagamentoRepository
 import com.zup.pagamento.repository.RestauranteRepository
-import com.zup.pagamento.repository.TipoFormaPagamentoRepository
+import com.zup.pagamento.repository.TipoPagamentoRepository
 import com.zup.pagamento.repository.UsuarioRepository
 import io.swagger.annotations.Api
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
-import javax.validation.constraints.Email
 
 @RestController
 @RequestMapping(path = ["/v1/gets"])
@@ -30,18 +29,7 @@ class RestApiController {
     lateinit var usuarioRepository: UsuarioRepository
 
     @Autowired
-    lateinit var tipoFormaPagamentoRepository: TipoFormaPagamentoRepository
-
-    //TODO em andamento ....
-    @ResponseBody
-    @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/formasPagamento")
-    fun buscaformasPagamentoPorIdRestauranteEEmail(
-            @RequestParam(name = "idRestaurante", required = true) idRestaurante: Long,
-            @RequestParam(name = "email", required = true)
-            @Email(message = "Informe um email válido.") email: String): List<FormaPagamento> {
-        return formaPagamentoRepository.findAll()
-    }
+    lateinit var tipoPagamentoRepository: TipoPagamentoRepository
 
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
@@ -67,8 +55,8 @@ class RestApiController {
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/tiposPagamento")
-    fun tiposFormaPagamentoRepository(): List<TipoFormaPagamento> {
-        return tipoFormaPagamentoRepository.findAll()
+    fun tiposFormaPagamentoRepository(): List<TipoPagamento> {
+        return tipoPagamentoRepository.findAll()
     }
 
 }
