@@ -1,7 +1,7 @@
 package com.zup.pagamento.controller
 
 import com.zup.pagamento.model.FormaPagamentoResponse
-import com.zup.pagamento.service.FormaPagamentoService
+import com.zup.pagamento.repository.FormaPagamentoRepository
 import io.swagger.annotations.Api
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -15,14 +15,14 @@ import javax.validation.constraints.Email
 @Validated
 class RestApiController {
     @Autowired
-    lateinit var formaPagamentoService: FormaPagamentoService
+    lateinit var formaPagamentoRepository: FormaPagamentoRepository
 
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/formasPagamentoPorUsuarioERestauranteId")
     fun formasPagamentoPorUsuarioERestauranteId(@RequestParam("idRestaurante", required = true) idRestaurante: Long,
                                                 @RequestParam("emailUsuario", required = true) @Email emailUsuario: String): List<FormaPagamentoResponse> {
-        return formaPagamentoService.formasPagamentoPorUsuarioERestauranteId(idRestaurante, emailUsuario)
+        return formaPagamentoRepository.formasPagamentoPorUsuarioERestauranteId(idRestaurante, emailUsuario)
     }
 
 }
