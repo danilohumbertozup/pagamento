@@ -1,5 +1,7 @@
 package com.zup.pagamento.model
 
+import com.zup.pagamento.dto.FormaPagamentoDto
+import com.zup.pagamento.dto.UsuarioDto
 import javax.persistence.*
 import javax.validation.constraints.Email
 import javax.validation.constraints.NotNull
@@ -22,5 +24,10 @@ class Usuario(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
     var id: Long = 0
+
+    fun converterResponse() = UsuarioDto(
+            email = this.email,
+            formasPagamento = this.formasPagamento.map { FormaPagamentoDto(it.id, it.descricao, it.tipo.pagamentoOnline) }.toSet()
+    )
 
 }
