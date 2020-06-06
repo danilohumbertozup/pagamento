@@ -1,0 +1,1 @@
+INSERT INTO FRAUDADOR(EMAIL) values ('jose@gmail.com');
